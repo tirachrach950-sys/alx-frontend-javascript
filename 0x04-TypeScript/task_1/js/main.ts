@@ -8,47 +8,28 @@ interface Teacher {
   [key: string]: any;
 }
 
-// Director interface extending Teacher
+// Directors interface extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Interface for printTeacher function
+// Function interface for printTeacher
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation
+// printTeacher implementation
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName[0]}. ${lastName}`;
 };
 
-// Example Teacher objects
-const teacher3: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
-  fullTimeEmployee: false,
-  location: 'London',
-  contract: false,
-  yearsOfExperience: 5,
-};
-
-const teacher4: Teacher = {
-  firstName: 'Anna',
-  lastName: 'Smith',
-  fullTimeEmployee: true,
-  location: 'New York',
-};
-
-// Example Director object
+// Example director
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: true,
   location: 'London',
+  fullTimeEmployee: true,
   numberOfReports: 17,
 };
 
-// Example output
-console.log(printTeacher("John", "Doe"));
-console.log(printTeacher("Anna", "Smith"));
+console.log(director1);
