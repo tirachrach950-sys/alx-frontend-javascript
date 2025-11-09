@@ -8,7 +8,7 @@ interface Teacher {
   [key: string]: any;
 }
 
-// Directors interface extending Teacher  ✅ EXACT NAME REQUIRED BY ALX
+// Directors interface extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
