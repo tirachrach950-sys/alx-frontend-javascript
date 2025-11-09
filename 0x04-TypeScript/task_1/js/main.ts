@@ -125,3 +125,20 @@ console.log(teacher1);
 console.log(teacher2);
 console.log(director1);
 console.log(printTeacher(director1.firstName, director1.lastName)); // R. Brown
+/**
+ * Interface for the printTeacher function
+ */
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+/**
+ * Function that returns the first letter of firstName followed by full lastName
+ */
+const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
+  return firstName[0] + ". " + lastName;
+};
+
+// Example usage
+console.log(printTeacher("John", "Doe")); // Output: J. Doe
+console.log(printTeacher("Alice", "Smith")); // Output: A. Smith
