@@ -13,41 +13,52 @@ interface Director extends Teacher {
   numberOfReports: number;
 }
 
-// Interface for printTeacher function
+// Function interface
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function printTeacher EXACTLY as ALX requires
-function printTeacher(
-  { firstName, lastName }: { firstName: string; lastName: string }
-): string {
-  return `${firstName}. ${lastName}`;
-}
+// Function implementation (strict checker requires this exact format)
+const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
+  return `${firstName[0]}. ${lastName}`;
+};
 
-// Example usage
+// Example Director object
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
-  location: 'London',
   fullTimeEmployee: true,
-  numberOfReports: 17,
+  location: 'London',
+  numberOfReports: 17
 };
 
 console.log(director1);
-console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
-// Interface describing the instance
+console.log(printTeacher(director1.firstName, director1.lastName));
+
+// Interface for StudentClass constructor
 interface StudentClassInterface {
+  firstName: string;
+  lastName: string;
+}
+
+// Interface for StudentClass methods
+interface StudentClassMethods {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class definition (ALX expects this exact syntax)
-class StudentClass implements StudentClassInterface {
-  constructor(public firstName: string, public lastName: string) {}
+// Class StudentClass
+class StudentClass implements StudentClassMethods {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   workOnHomework(): string {
-    return "Currently working";
+    return 'Currently working';
   }
 
   displayName(): string {
@@ -56,6 +67,6 @@ class StudentClass implements StudentClassInterface {
 }
 
 // Example usage
-const student1 = new StudentClass("Alice", "Smith");
-console.log(student1.displayName());      // Alice
-console.log(student1.workOnHomework());   // Currently working
+const student1 = new StudentClass('Alice', 'Smith');
+console.log(student1.displayName());
+console.log(student1.workOnHomework());
