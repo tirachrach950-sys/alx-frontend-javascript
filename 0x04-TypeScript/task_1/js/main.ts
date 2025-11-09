@@ -22,7 +22,7 @@ interface Teacher {
  * It extends the Teacher interface, inheriting all its properties (including readonly and optional ones),
  * and adds the mandatory 'numberOfReports' attribute.
  */
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
@@ -45,8 +45,9 @@ const teacher4: Teacher = {
   // No extra attributes are included, which is also valid
 };
 
-// Example usage demonstrating the Directors interface.
-const director1: Directors = {
+// Example usage demonstrating the Director interface.
+// Note: We use the singular 'Director' interface here.
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -81,7 +82,7 @@ const invalidTeacher: Teacher = {
 
 /**
  * A helper function to print teacher/director details for clarity in the console output.
- * Since Directors extends Teacher, this function works for both types.
+ * Since Director extends Teacher, this function works for both types.
  * @param entity The teacher or director object to display.
  */
 function displayTeacher(entity: Teacher): void {
@@ -100,4 +101,4 @@ displayTeacher(teacher3);
 
 console.log('\n--- Display Director 1 (Formatted Output) ---');
 displayTeacher(director1);
-// This output format closely matches the requested example printout 
+// This output format closely matches the requested example printout whe
