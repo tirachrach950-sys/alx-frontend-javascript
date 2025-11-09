@@ -140,16 +140,17 @@ interface printTeacherFunction {
 
 /**
  * Function to format a teacher's name as: First Initial. Last Name.
- * The function is typed using the printTeacherFunction interface.
+ * The function is typed implicitly by its signature and should conform to printTeacherFunction.
  * @param firstName The first name of the teacher.
  * @param lastName The last name of the teacher.
  * @returns A formatted string (e.g., "J. Doe").
  */
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  // Ensure we handle potential empty string by using optional chaining or a simple check
-  const firstInitial = firstName.charAt(0);
+function printTeacher(firstName: string, lastName: string): string {
+  // Get the first letter of the firstName
+  const firstInitial = firstName.charAt(0); 
+  // Return the first initial followed by a period, space, and the full last name.
   return `${firstInitial}. ${lastName}`;
-};
+}
 
 
 // Example usage demonstrating the mandatory, optional, readonly, and extra attributes for Teacher.
@@ -189,7 +190,9 @@ console.log('\n--- Director 1 Details ---');
 console.log(director1);
 
 console.log('\n--- Print Teacher Function Example ---');
-console.log(`John Doe: ${printTeacher("John", "Doe")}`);
+// Example output: J. Doe
+console.log(`John Doe: ${printTeacher("John", "Doe")}`); 
+// Example output: J. Doe (from director1 data)
 console.log(`Anna Smith: ${printTeacher(director1.firstName, director1.lastName)}`);
 
 
@@ -228,4 +231,4 @@ displayTeacher(teacher3);
 
 console.log('\n--- Display Director 1 (Formatted Output) ---');
 displayTeacher(director1);
-// This output format closely matches the requested example
+// This output format closely matches the requested example printout when run in a Node/Browser environment.
