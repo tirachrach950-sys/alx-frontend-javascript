@@ -1,51 +1,41 @@
 /**
- * -------------------------
- * Teacher Interface
- * -------------------------
+ * Teacher interface
  */
 interface Teacher {
-  readonly firstName: string;      // Only settable on initialization
-  readonly lastName: string;       // Only settable on initialization
-  fullTimeEmployee: boolean;       // Mandatory
-  yearsOfExperience?: number;      // Optional
-  location: string;                // Mandatory
-  [key: string]: any;              // Allow extra properties like 'contract'
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any; // Allow extra properties
 }
 
 /**
- * -------------------------
- * Director Interface
- * -------------------------
+ * Director interface extending Teacher
  */
 interface Director extends Teacher {
-  numberOfReports: number;         // Mandatory Director-specific property
+  numberOfReports: number;
 }
 
 /**
- * -------------------------
- * printTeacher function interface
- * -------------------------
+ * Interface for printTeacher function
  */
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
 /**
- * -------------------------
- * printTeacher function
- * -------------------------
+ * ALX-compliant function declaration
  */
-const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
+function printTeacher(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
-};
+}
 
 // Example usage
 console.log(printTeacher("John", "Doe")); // J. Doe
 
 /**
- * -------------------------
  * StudentClass constructor interface
- * -------------------------
  */
 interface StudentClassConstructor {
   firstName: string;
@@ -53,9 +43,7 @@ interface StudentClassConstructor {
 }
 
 /**
- * -------------------------
  * StudentClass methods interface
- * -------------------------
  */
 interface StudentClassMethods {
   workOnHomework(): string;
@@ -63,11 +51,9 @@ interface StudentClassMethods {
 }
 
 /**
- * -------------------------
  * StudentClass definition
- * -------------------------
  */
-class StudentClass {
+class StudentClass implements StudentClassMethods {
   firstName: string;
   lastName: string;
 
@@ -85,16 +71,12 @@ class StudentClass {
   }
 }
 
-// Example usage
+// Example StudentClass usage
 const student1 = new StudentClass("Alice", "Smith");
 console.log(student1.displayName());       // Alice
 console.log(student1.workOnHomework());    // Currently working
 
-/**
- * -------------------------
- * Example Teachers & Director
- * -------------------------
- */
+// Example Teachers
 const teacher1: Teacher = {
   firstName: "John",
   lastName: "Doe",
@@ -111,7 +93,7 @@ const teacher2: Teacher = {
   location: "New York",
 };
 
-// Director example
+// Example Director
 const director1: Director = {
   firstName: "Robert",
   lastName: "Brown",
@@ -120,7 +102,7 @@ const director1: Director = {
   numberOfReports: 17,
 };
 
-// Logging all
+// Logging
 console.log(teacher1);
 console.log(teacher2);
 console.log(director1);
