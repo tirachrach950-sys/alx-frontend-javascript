@@ -1,41 +1,72 @@
-// Teacher interface
+/**
+ * -------------------------
+ * Teacher Interface
+ * -------------------------
+ */
 interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
+  readonly firstName: string;      // Only settable on initialization
+  readonly lastName: string;       // Only settable on initialization
+  fullTimeEmployee: boolean;       // Mandatory
+  yearsOfExperience?: number;      // Optional
+  location: string;                // Mandatory
+  [key: string]: any;              // Allow extra properties like 'contract'
 }
 
-// Director interface extending Teacher
+/**
+ * -------------------------
+ * Director Interface
+ * -------------------------
+ */
 interface Director extends Teacher {
-  numberOfReports: number;
+  numberOfReports: number;         // Mandatory Director-specific property
 }
 
-// Function interface
+/**
+ * -------------------------
+ * printTeacher function interface
+ * -------------------------
+ */
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation
+/**
+ * -------------------------
+ * printTeacher function
+ * -------------------------
+ */
 const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
 };
 
-// Example Director object
-const director1: Director = {
-  firstName: 'John',
-  lastName: 'Doe',
-  fullTimeEmployee: true,
-  location: 'London',
-  numberOfReports: 17
-};
+// Example usage
+console.log(printTeacher("John", "Doe")); // J. Doe
 
-console.log(director1);
-console.log(printTeacher(director1.firstName, director1.lastName));
+/**
+ * -------------------------
+ * StudentClass constructor interface
+ * -------------------------
+ */
+interface StudentClassConstructor {
+  firstName: string;
+  lastName: string;
+}
 
-// Class definition (strict checker wants this exact line)
+/**
+ * -------------------------
+ * StudentClass methods interface
+ * -------------------------
+ */
+interface StudentClassMethods {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+/**
+ * -------------------------
+ * StudentClass definition
+ * -------------------------
+ */
 class StudentClass {
   firstName: string;
   lastName: string;
@@ -46,7 +77,7 @@ class StudentClass {
   }
 
   workOnHomework(): string {
-    return 'Currently working';
+    return "Currently working";
   }
 
   displayName(): string {
@@ -55,6 +86,42 @@ class StudentClass {
 }
 
 // Example usage
-const student1 = new StudentClass('Alice', 'Smith');
-console.log(student1.displayName());
-console.log(student1.workOnHomework());
+const student1 = new StudentClass("Alice", "Smith");
+console.log(student1.displayName());       // Alice
+console.log(student1.workOnHomework());    // Currently working
+
+/**
+ * -------------------------
+ * Example Teachers & Director
+ * -------------------------
+ */
+const teacher1: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "London",
+  yearsOfExperience: 5,
+  contract: false,
+};
+
+const teacher2: Teacher = {
+  firstName: "Anna",
+  lastName: "Smith",
+  fullTimeEmployee: true,
+  location: "New York",
+};
+
+// Director example
+const director1: Director = {
+  firstName: "Robert",
+  lastName: "Brown",
+  fullTimeEmployee: true,
+  location: "Paris",
+  numberOfReports: 17,
+};
+
+// Logging all
+console.log(teacher1);
+console.log(teacher2);
+console.log(director1);
+console.log(printTeacher(director1.firstName, director1.lastName)); // R. Brown
