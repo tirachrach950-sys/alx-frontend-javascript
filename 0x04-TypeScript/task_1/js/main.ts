@@ -1,19 +1,19 @@
-// Define the Teacher interface
+// 1️⃣ Teacher interface
 interface Teacher {
-  readonly firstName: string;     // Only settable on initialization
-  readonly lastName: string;      // Only settable on initialization
-  fullTimeEmployee: boolean;      // Mandatory
-  yearsOfExperience?: number;     // Optional
-  location: string;               // Mandatory
-  [key: string]: any;             // Allow additional properties
+  readonly firstName: string;        // Set only at initialization
+  readonly lastName: string;         // Set only at initialization
+  fullTimeEmployee: boolean;         // Required
+  yearsOfExperience?: number;        // Optional
+  location: string;                  // Required
+  [key: string]: any;                // Allow additional properties
 }
 
-// Define the Directors interface extending Teacher
+// 2️⃣ Directors interface extending Teacher
 interface Directors extends Teacher {
-  numberOfReports: number;        // Mandatory attribute
+  numberOfReports: number;           // Required
 }
 
-// Example Teacher objects
+// 3️⃣ Example Teachers
 const teacher1: Teacher = {
   firstName: 'Alice',
   lastName: 'Smith',
@@ -23,17 +23,12 @@ const teacher1: Teacher = {
 
 const teacher2: Teacher = {
   firstName: 'Bob',
-  // Directors interface extending Teacher
-interface Directors extends Teacher {
-  numberOfReports: number; // Mandatory attribute
-}
-
   lastName: 'Johnson',
   fullTimeEmployee: false,
   location: 'Paris'
 };
 
-// Example Director object
+// 4️⃣ Example Director
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -42,17 +37,17 @@ const director1: Directors = {
   numberOfReports: 17
 };
 
-// Interface for the printTeacher function
+// 5️⃣ Interface for printTeacher function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Implement the function
+// 6️⃣ Implementation
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-// Example usage
-console.log(printTeacher("John", "Doe"));     // Output: "J. Doe"
-console.log(printTeacher("Alice", "Smith"));  // Output: "A. Smith"
-console.log(director1);                       // Output: Director object
+// 7️⃣ Usage examples
+console.log(printTeacher("John", "Doe"));    // Output: J. Doe
+console.log(printTeacher("Alice", "Smith")); // Output: A. Smith
+console.log(director1);
