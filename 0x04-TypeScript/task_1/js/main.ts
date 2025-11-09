@@ -21,4 +21,17 @@ const teacher2: Teacher = {
   lastName: 'Johnson',
   fullTimeEmployee: false,
   year
+// Interface for the printTeacher function
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// Function implementation
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+// Example usage
+console.log(printTeacher("John", "Doe")); // Output: "J. Doe"
+console.log(printTeacher("Alice", "Smith")); // Output: "A. Smith"
 
