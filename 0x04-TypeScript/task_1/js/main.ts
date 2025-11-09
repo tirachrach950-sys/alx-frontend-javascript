@@ -4,12 +4,12 @@
  * -------------------------
  */
 interface Teacher {
-  readonly firstName: string;      // Only settable on initialization
-  readonly lastName: string;       // Only settable on initialization
-  fullTimeEmployee: boolean;       // Mandatory
-  yearsOfExperience?: number;      // Optional
-  location: string;                // Mandatory
-  [key: string]: any;              // Allow extra properties like 'contract'
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
 /**
@@ -18,7 +18,7 @@ interface Teacher {
  * -------------------------
  */
 interface Director extends Teacher {
-  numberOfReports: number;         // Mandatory Director-specific property
+  numberOfReports: number;
 }
 
 /**
@@ -36,7 +36,7 @@ interface printTeacherFunction {
  * -------------------------
  */
 const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
+  return firstName[0] + ". " + lastName;
 };
 
 // Example usage
@@ -67,7 +67,7 @@ interface StudentClassMethods {
  * StudentClass definition
  * -------------------------
  */
-class StudentClass {
+class StudentClass implements StudentClassMethods {
   firstName: string;
   lastName: string;
 
