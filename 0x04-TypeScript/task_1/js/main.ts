@@ -1,11 +1,11 @@
-// Interface for the printTeacher function
+// Interface for the function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation
+// Function definition exactly as ALX expects
 function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
+  return firstName[0] + ". " + lastName;
 }
 
 // Example usage
