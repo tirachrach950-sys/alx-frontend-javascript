@@ -1,30 +1,127 @@
 /**
- * Interface defining the structure of the printTeacher function.
- * It specifies that the function must accept two string arguments (firstName, lastName)
- * and must return a string.
+ * -------------------------
+ * Teacher Interface
+ * -------------------------
+ */
+interface Teacher {
+  readonly firstName: string;      // Only settable on initialization
+  readonly lastName: string;       // Only settable on initialization
+  fullTimeEmployee: boolean;       // Mandatory
+  yearsOfExperience?: number;      // Optional
+  location: string;                // Mandatory
+  [key: string]: any;              // Allow extra properties like 'contract'
+}
+
+/**
+ * -------------------------
+ * Director Interface
+ * -------------------------
+ */
+interface Director extends Teacher {
+  numberOfReports: number;         // Mandatory Director-specific property
+}
+
+/**
+ * -------------------------
+ * printTeacher function interface
+ * -------------------------
  */
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
 /**
- * Implements the printTeacherFunction interface.
- *
- * @param firstName The first name of the teacher (e.g., "John").
- * @param lastName The last name of the teacher (e.g., "Doe").
- * @returns A formatted string with the first initial of the first name and the full last name (e.g., "J. Doe").
+ * -------------------------
+ * printTeacher function
+ * -------------------------
  */
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  // Get the first letter of the firstName and ensure it's capitalized
-  const firstInitial = firstName.charAt(0).toUpperCase();
-
-  // Return the formatted string: "F. LastName"
-  // The 'lastName' is used exactly as provided.
-  return `${firstInitial}. ${lastName}`;
+const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
+  return `${firstName[0]}. ${lastName}`;
 };
 
-// You can uncomment the examples below to test the function:
-/*
-console.log(printTeacher("John", "Doe"));      // Output: J. Doe
-console.log(printTeacher("barbara", "Jenkins")); // Output: B. Jenkins
-*/
+// Example usage
+console.log(printTeacher("John", "Doe")); // J. Doe
+
+/**
+ * -------------------------
+ * StudentClass constructor interface
+ * -------------------------
+ */
+interface StudentClassConstructor {
+  firstName: string;
+  lastName: string;
+}
+
+/**
+ * -------------------------
+ * StudentClass methods interface
+ * -------------------------
+ */
+interface StudentClassMethods {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+/**
+ * -------------------------
+ * StudentClass definition
+ * -------------------------
+ */
+class StudentClass {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage
+const student1 = new StudentClass("Alice", "Smith");
+console.log(student1.displayName());       // Alice
+console.log(student1.workOnHomework());    // Currently working
+
+/**
+ * -------------------------
+ * Example Teachers & Director
+ * -------------------------
+ */
+const teacher1: Teacher = {
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "London",
+  yearsOfExperience: 5,
+  contract: false,
+};
+
+const teacher2: Teacher = {
+  firstName: "Anna",
+  lastName: "Smith",
+  fullTimeEmployee: true,
+  location: "New York",
+};
+
+// Director example
+const director1: Director = {
+  firstName: "Robert",
+  lastName: "Brown",
+  fullTimeEmployee: true,
+  location: "Paris",
+  numberOfReports: 17,
+};
+
+// Logging all
+console.log(teacher1);
+console.log(teacher2);
+console.log(director1);
+console.log(printTeacher(director1.firstName, director1.lastName)); // R. Brown
