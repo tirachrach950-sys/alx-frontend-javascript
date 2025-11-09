@@ -8,7 +8,7 @@ interface Teacher {
   [key: string]: any;
 }
 
-// Directors interface extending Teacher
+// Directors interface extending Teacher  ✅ EXACT NAME REQUIRED BY ALX
 interface Directors extends Teacher {
   numberOfReports: number;
 }
@@ -23,7 +23,7 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName[0]}. ${lastName}`;
 };
 
-// Example director
+// Example object
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
