@@ -1,109 +1,12 @@
-/**
- * Teacher interface
- */
-interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any; // Allow extra properties
-}
-
-/**
- * Director interface extending Teacher
- */
-interface Director extends Teacher {
-  numberOfReports: number;
-}
-
-/**
- * Interface for printTeacher function
- */
+// Interface for the printTeacher function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-/**
- * ALX-compliant function declaration
- */
-function printTeacher(firstName: string, lastName: string): string {
+// Function declaration (ALX-compliant)
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName[0]}. ${lastName}`;
 }
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // J. Doe
-
-/**
- * StudentClass constructor interface
- */
-interface StudentClassConstructor {
-  firstName: string;
-  lastName: string;
-}
-
-/**
- * StudentClass methods interface
- */
-interface StudentClassMethods {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-/**
- * StudentClass definition
- */
-class StudentClass implements StudentClassMethods {
-  firstName: string;
-  lastName: string;
-
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-
-  workOnHomework(): string {
-    return "Currently working";
-  }
-
-  displayName(): string {
-    return this.firstName;
-  }
-}
-
-// Example StudentClass usage
-const student1 = new StudentClass("Alice", "Smith");
-console.log(student1.displayName());       // Alice
-console.log(student1.workOnHomework());    // Currently working
-
-// Example Teachers
-const teacher1: Teacher = {
-  firstName: "John",
-  lastName: "Doe",
-  fullTimeEmployee: true,
-  location: "London",
-  yearsOfExperience: 5,
-  contract: false,
-};
-
-const teacher2: Teacher = {
-  firstName: "Anna",
-  lastName: "Smith",
-  fullTimeEmployee: true,
-  location: "New York",
-};
-
-// Example Director
-const director1: Director = {
-  firstName: "Robert",
-  lastName: "Brown",
-  fullTimeEmployee: true,
-  location: "Paris",
-  numberOfReports: 17,
-};
-
-// Logging
-console.log(teacher1);
-console.log(teacher2);
-console.log(director1);
-console.log(printTeacher(director1.firstName, director1.lastName)); // R. Brown
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // J. Doe
