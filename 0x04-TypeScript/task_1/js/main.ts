@@ -11,9 +11,9 @@ interface Teacher {
 }
 
 // -----------------------------
-// Directors Interface (ALX checker expects plural)
+// Director Interface
 // -----------------------------
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number;            // Mandatory for Director
 }
 
@@ -34,7 +34,7 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
 // -----------------------------
 // Example usage
 // -----------------------------
-const director1: Directors = {
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
@@ -76,5 +76,5 @@ class StudentClass implements StudentClassInterface {
 // Example StudentClass usage
 // -----------------------------
 const student1 = new StudentClass("Alice", "Smith");
-console.log(student1.displayName());
-console.log(student1.workOnHomework());
+console.log(student1.displayName());      // Alice
+console.log(student1.workOnHomework());   // Currently working
