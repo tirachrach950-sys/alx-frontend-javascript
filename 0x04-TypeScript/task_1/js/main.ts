@@ -133,12 +133,12 @@ interface printTeacherFunction {
 }
 
 /**
- * Function that returns the first letter of firstName followed by full lastName
+ * Function that prints first initial and full last name
  */
 const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
   return firstName[0] + ". " + lastName;
 };
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // Output: J. Doe
+console.log(printTeacher("John", "Doe"));   // Output: J. Doe
 console.log(printTeacher("Alice", "Smith")); // Output: A. Smith
