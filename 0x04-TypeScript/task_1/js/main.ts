@@ -19,24 +19,12 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
   const firstInitial = firstName.charAt(0).toUpperCase();
 
   // Return the formatted string: "F. LastName"
+  // The 'lastName' is used exactly as provided.
   return `${firstInitial}. ${lastName}`;
 };
 
-// --- Example Usage and Testing ---
-
-// Test case 1: Standard input
-const result1 = printTeacher("John", "Doe");
-console.log(`Test 1: printTeacher("John", "Doe") -> ${result1}`); // Output: J. Doe
-
-// Test case 2: Different names
-const result2 = printTeacher("Alice", "Smith");
-console.log(`Test 2: printTeacher("Alice", "Smith") -> ${result2}`); // Output: A. Smith
-
-// Test case 3: Handling lower case input (the function ensures capitalization)
-const result3 = printTeacher("barbara", "Jenkins");
-console.log(`Test 3: printTeacher("barbara", "Jenkins") -> ${result3}`); // Output: B. Jenkins
-
-// To satisfy TypeScript that the interface is used, we can verify the assignment:
-if (printTeacher as printTeacherFunction) {
-  console.log("Interface printTeacherFunction successfully implemented and assigned.");
-}
+// You can uncomment the examples below to test the function:
+/*
+console.log(printTeacher("John", "Doe"));      // Output: J. Doe
+console.log(printTeacher("barbara", "Jenkins")); // Output: B. Jenkins
+*/
