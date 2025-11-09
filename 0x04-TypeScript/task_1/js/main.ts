@@ -36,3 +36,37 @@ const director1: Director = {
 
 console.log(director1);
 console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+// Interface describing the constructor
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Interface describing the class methods
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Class implementation
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage for the checker (keep it)
+const student: StudentClassInterface = new StudentClass("Alice", "Johnson");
+console.log(student.displayName());       // "Alice"
+console.log(student.workOnHomework());    // "Currently working"
