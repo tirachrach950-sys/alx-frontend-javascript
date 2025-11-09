@@ -1,34 +1,19 @@
-// 1️⃣ Teacher interface
+// Teacher interface
 interface Teacher {
-  readonly firstName: string;        // Set only at initialization
-  readonly lastName: string;         // Set only at initialization
-  fullTimeEmployee: boolean;         // Required
-  yearsOfExperience?: number;        // Optional
-  location: string;                  // Required
-  [key: string]: any;                // Allow additional properties
+  readonly firstName: string;       // Only settable on initialization
+  readonly lastName: string;        // Only settable on initialization
+  fullTimeEmployee: boolean;        // Mandatory
+  yearsOfExperience?: number;       // Optional
+  location: string;                 // Mandatory
+  [key: string]: any;               // Allow additional properties
 }
 
-// 2️⃣ Directors interface extending Teacher
+// Directors interface extending Teacher
 interface Directors extends Teacher {
-  numberOfReports: number;           // Required
+  numberOfReports: number;          // Mandatory attribute
 }
 
-// 3️⃣ Example Teachers
-const teacher1: Teacher = {
-  firstName: 'Alice',
-  lastName: 'Smith',
-  fullTimeEmployee: true,
-  location: 'London'
-};
-
-const teacher2: Teacher = {
-  firstName: 'Bob',
-  lastName: 'Johnson',
-  fullTimeEmployee: false,
-  location: 'Paris'
-};
-
-// 4️⃣ Example Director
+// Example Director object
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -37,17 +22,26 @@ const director1: Directors = {
   numberOfReports: 17
 };
 
-// 5️⃣ Interface for printTeacher function
+// Interface for printTeacher function
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// 6️⃣ Implementation
+// Function implementation
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-// 7️⃣ Usage examples
-console.log(printTeacher("John", "Doe"));    // Output: J. Doe
-console.log(printTeacher("Alice", "Smith")); // Output: A. Smith
+// Example usage
+console.log(printTeacher('John', 'Doe')); // Output: J. Doe
 console.log(director1);
+/* Expected console output:
+J. Doe
+{
+  firstName: "John",
+  lastName: "Doe",
+  fullTimeEmployee: true,
+  location: "London",
+  numberOfReports: 17
+}
+*/
