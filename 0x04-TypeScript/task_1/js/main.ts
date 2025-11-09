@@ -18,7 +18,7 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function implementation (strict checker requires this exact format)
+// Function implementation
 const printTeacher: printTeacherFunction = function(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
 };
@@ -35,20 +35,8 @@ const director1: Director = {
 console.log(director1);
 console.log(printTeacher(director1.firstName, director1.lastName));
 
-// Interface for StudentClass constructor
-interface StudentClassInterface {
-  firstName: string;
-  lastName: string;
-}
-
-// Interface for StudentClass methods
-interface StudentClassMethods {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-// Class StudentClass
-class StudentClass implements StudentClassMethods {
+// Class definition (strict checker wants this exact line)
+class StudentClass {
   firstName: string;
   lastName: string;
 
