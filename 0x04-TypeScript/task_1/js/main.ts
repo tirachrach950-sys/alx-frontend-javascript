@@ -8,8 +8,8 @@ interface Teacher {
   [key: string]: any;
 }
 
-// ✅ EXACT interface name required: Directors (NOT Director)
-interface Directors extends Teacher {
+
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
