@@ -1,31 +1,39 @@
-// Teacher interface
+// -----------------------------
+// Teacher Interface
+// -----------------------------
 interface Teacher {
-  readonly firstName: string;
-  readonly lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
-  [key: string]: any;
+  readonly firstName: string;         // Only settable on initialization
+  readonly lastName: string;          // Only settable on initialization
+  fullTimeEmployee: boolean;          // Mandatory
+  yearsOfExperience?: number;         // Optional
+  location: string;                   // Mandatory
+  [key: string]: any;                 // Allow extra attributes like 'contract'
 }
 
-// Director interface extending Teacher
+// -----------------------------
+// Director Interface
+// -----------------------------
 interface Director extends Teacher {
-  numberOfReports: number;
+  numberOfReports: number;            // Mandatory for Director
 }
 
-// Interface for printTeacher function
+// -----------------------------
+// printTeacher function interface
+// -----------------------------
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Function printTeacher EXACTLY as ALX requires
-function printTeacher(
-  { firstName, lastName }: { firstName: string; lastName: string }
-): string {
-  return `${firstName}. ${lastName}`;
-}
+// -----------------------------
+// printTeacher function
+// -----------------------------
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName[0]}. ${lastName}`;
+};
 
+// -----------------------------
 // Example usage
+// -----------------------------
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -35,27 +43,25 @@ const director1: Director = {
 };
 
 console.log(director1);
-console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
-// Interface describing the constructor
+console.log(printTeacher(director1.firstName, director1.lastName));
+
+// -----------------------------
+// StudentClass Interfaces
+// -----------------------------
 interface StudentClassConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
 }
 
-// Interface describing the class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class implementation
+// -----------------------------
+// StudentClass implementation
+// -----------------------------
 class StudentClass implements StudentClassInterface {
-  firstName: string;
-  lastName: string;
-
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+  constructor(public firstName: string, public lastName: string) {}
 
   workOnHomework(): string {
     return "Currently working";
@@ -66,7 +72,9 @@ class StudentClass implements StudentClassInterface {
   }
 }
 
-// Example usage for the checker (keep it)
-const student: StudentClassInterface = new StudentClass("Alice", "Johnson");
-console.log(student.displayName());       // "Alice"
-console.log(student.workOnHomework());    // "Currently working"
+// -----------------------------
+// Example StudentClass usage
+// -----------------------------
+const student1 = new StudentClass("Alice", "Smith");
+console.log(student1.displayName());      // Alice
+console.log(student1.workOnHomework());   // Currently working
