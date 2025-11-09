@@ -23,6 +23,11 @@ const teacher1: Teacher = {
 
 const teacher2: Teacher = {
   firstName: 'Bob',
+  // Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number; // Mandatory attribute
+}
+
   lastName: 'Johnson',
   fullTimeEmployee: false,
   location: 'Paris'
