@@ -1,15 +1,9 @@
-/**
- * Interface for the printTeacher function
- */
+// Interface for the printTeacher function
 interface printTeacherFunction {
   (obj: { firstName: string; lastName: string }): string;
 }
 
-/**
- * Function implementation
- * Accepts an object with firstName and lastName
- * Returns: first letter of firstName + ". " + lastName
- */
+// Function implementation
 const printTeacher: printTeacherFunction = function(obj) {
   return obj.firstName.charAt(0) + ". " + obj.lastName;
 };
