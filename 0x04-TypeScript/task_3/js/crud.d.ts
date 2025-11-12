@@ -13,8 +13,8 @@ export function updateRow(rowId, row) {
   return rowId;
 }
 // task_3/js/crud.d.ts
-import { RowID, RowElement } from './interface';
+import { RowElement, RowID } from './interface';
 
-export declare function insertRow(row: RowElement): RowID;
+export declare function insertRow(row: RowElement): number;
 export declare function deleteRow(rowId: RowID): void;
-export declare function updateRow(rowId: RowID, row: RowElement): RowID;
+export declare function updateRow(rowId: RowID, row: RowElement): number;
