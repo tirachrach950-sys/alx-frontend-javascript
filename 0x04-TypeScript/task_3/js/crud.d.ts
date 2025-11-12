@@ -12,8 +12,7 @@ export function updateRow(rowId, row) {
   console.log(`Update row ${rowId}`, row);
   return rowId;
 }
-/// task_3/js/crud.d.ts
-
+// task_3/js/crud.d.ts
 import { RowID, RowElement } from './interface';
 
 export declare function insertRow(row: RowElement): RowID;
