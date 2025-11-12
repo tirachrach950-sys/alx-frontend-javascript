@@ -1,15 +1,23 @@
-/ Define the interface for the object
+// Interface for the object argument
 interface Person {
   firstName: string;
   lastName: string;
 }
 
-// Create a person object following the interface
-let person: Person = {
-  firstName: 'scripter',
-  lastName: 'efendi', // comma is required here
+// Interface for the function
+interface PrintTeacherFunction {
+  (person: Person): string;
+}
+
+// Function implementation
+const printTeacher: PrintTeacherFunction = (person) => {
+  const firstInitial = person.firstName[0];
+  return `${firstInitial}. ${person.lastName}`;
 };
 
-// Access properties
-console.log(person.firstName); // scripter
-console.log(person.lastName);  // efendi
+// Example usage
+const teacher1: Person = { firstName: 'Joe', lastName: 'Sara' };
+const teacher2: Person = { firstName: 'John', lastName: 'Doe' };
+
+console.log(printTeacher(teacher1)); // Output: J. Sara
+console.log(printTeacher(teacher2)); // Output: J. Doe
