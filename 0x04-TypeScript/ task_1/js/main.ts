@@ -14,7 +14,5 @@ function printTeacher(firstName: string, lastName: string): string {
 const message1 = printTeacher("John", "Doe");
 console.log(message1); // Output: John Doe
 
-const message2 = printTeacher("Sara", "Smith");
-console.log(message2); // Output: Sara Smith
 
 
