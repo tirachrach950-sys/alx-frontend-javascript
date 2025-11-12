@@ -4,18 +4,20 @@ interface Person {
   lastName: string;
 }
 
-// Interface for the function
 interface PrintTeacherFunction {
-  (person: Person): string;
+  firstName: string;
+  lastName: string;
 }
 
-// Function implementation
-const printTeacher: PrintTeacherFunction = (person) => {
-  const firstInitial = person.firstName[0];
-  return `${firstInitial}. ${person.lastName}`;
+const teacher: PrintTeacherFunction = {
+  firstName: "john",
+  lastName: "doe"
 };
 
-// Example usage
+console.log(teacher.firstName, teacher.lastName);
+
+
+
 const teacher1: Person = { firstName: 'Joe', lastName: 'Sara' };
 const teacher2: Person = { firstName: 'John', lastName: 'Doe' };
 
