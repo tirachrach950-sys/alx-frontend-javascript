@@ -12,12 +12,12 @@ export interface StudentInterface {
   displayName(): string;
 }
 
-// Class implementation
-export class StudentClass implements StudentInterface {
+// Class definition as ALX expects
+export class StudentClass {
   firstName: string;
   lastName: string;
 
-  constructor({ firstName, lastName }: StudentConstructor) {
+  constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
     this.lastName = lastName;
   }
@@ -32,6 +32,6 @@ export class StudentClass implements StudentInterface {
 }
 
 // Example usage
-const student = new StudentClass({ firstName: "Guillaume", lastName: "Salva" });
-console.log(student.displayName());       // Output: Guillaume
-console.log(student.workOnHomework());    // Output: Currently working
+const student = new StudentClass("Guillaume", "Salva");
+console.log(student.displayName());       // Guillaume
+console.log(student.workOnHomework());    // Currently working
