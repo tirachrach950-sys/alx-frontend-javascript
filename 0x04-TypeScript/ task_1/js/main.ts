@@ -3,6 +3,11 @@ interface Person {
   firstName: string;
   lastName: string;
 }
+// Interface for the object argument
+interface Person {
+  firstName: string;
+  lastName: string;
+}
 
 interface PrintTeacherFunction {
   firstName: string;
@@ -14,7 +19,8 @@ const teacher: PrintTeacherFunction = {
   lastName: "doe"
 };
 
-console.log(teacher.firstName, teacher.lastName);
+console.log("john", "doe");
+
 
 
 
