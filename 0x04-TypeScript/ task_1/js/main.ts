@@ -5,18 +5,16 @@ interface Person {
   lastName: string;
 }
 
-interface PrintTeacherFunction {
-  firstName: string;
-  lastName: string;
+// Function that accepts firstName and lastName and returns "FirstName LastName"
+function printTeacher(firstName: string, lastName: string): string {
+  return firstName + " " + lastName;
 }
 
-const teacher: PrintTeacherFunction = {
-  firstName: "john",
-  lastName: "doe"
-};
+// Calling the function with two arguments
+const message1 = printTeacher("John", "Doe");
+console.log(message1); // Output: John Doe
 
-console.log("john", "doe");
-
-
+const message2 = printTeacher("Sara", "Smith");
+console.log(message2); // Output: Sara Smith
 
 
