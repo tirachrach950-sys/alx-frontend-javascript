@@ -3,7 +3,7 @@ interface TeacherName {
     firstName: string;
     lastName: string;
 }
-export const printTeacher = ({ firstName, lastName }: TeacherName): string => {
+ const printTeacher = ({ firstName, lastName }: TeacherName): string => {
     const initial: string = firstName.charAt(0);
     return `${initial}. ${lastName}`;
 };
