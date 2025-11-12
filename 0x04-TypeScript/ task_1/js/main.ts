@@ -1,8 +1,4 @@
-// Interface for the object argument
-interface Person {
-  firstName: string;
-  lastName: string;
-}
+
 // Interface for the object argument
 interface Person {
   firstName: string;
