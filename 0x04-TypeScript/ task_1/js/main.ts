@@ -20,8 +20,3 @@ console.log("john", "doe");
 
 
 
-const teacher1: Person = { firstName: 'Joe', lastName: 'Sara' };
-const teacher2: Person = { firstName: 'John', lastName: 'Doe' };
-
-console.log(printTeacher(teacher1)); // Output: J. Sara
-console.log(printTeacher(teacher2)); // Output: J. Doe
