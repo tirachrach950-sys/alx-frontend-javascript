@@ -58,14 +58,13 @@ console.log(createEmployee('$500').constructor.name); // Director
 // String literal type for Subjects
 export type Subjects = "Math" | "History";
 
-// Function that teaches the class
+// Function that teaches the class with explicit parameter type
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
     return "Teaching History";
   }
-  // Optionally, TypeScript will warn if another string is passed
 }
 
 // Example usage
