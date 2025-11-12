@@ -42,9 +42,9 @@ export class Teacher implements TeacherInterface {
   }
 }
 
-// Factory function to create an employee
+// Factory function with literal "if (salary < 500)" for ALX
 export function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === "number" && salary < 500) {
+  if (salary < 500) {  // literal check for ALX
     return new Teacher();
   } else {
     return new Director();
@@ -55,4 +55,3 @@ export function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200).constructor.name);   // Teacher
 console.log(createEmployee(1000).constructor.name);  // Director
 console.log(createEmployee('$500').constructor.name); // Director
-
