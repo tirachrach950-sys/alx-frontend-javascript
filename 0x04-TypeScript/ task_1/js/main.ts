@@ -1,14 +1,20 @@
-// Interface defining the printTeacher function
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+// Define the interface for the input object (usually named with I prefix or type suffix)
+interface TeacherName {
+    firstName: string;
+    lastName: string;
 }
 
-// Implementation of the function
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName} ${lastName}`;
+/**
+ * Formats and returns the teacher's name as "F. LastName".
+ * @param nameObj An object containing the first name and last name.
+ * @returns The formatted name string.
+ */
+export const printTeacher = ({ firstName, lastName }: TeacherName): string => {
+    const initial: string = firstName.charAt(0);
+    return `${initial}. ${lastName}`;
 };
 
-// Usage examples
-console.log(printTeacher("John", "Doe"));   // Output: John Doe
-console.log(printTeacher("Joe", "Smith"));  // Output: Joe Smith
-console.log(printTeacher("Sara", "Johnson")); // Output: Sara Johnson
+// --- Example usage (for testing purposes, not part of the core function) ---
+const teacher: TeacherName = { firstName: "John", lastName: "Doe" };
+const result: string = printTeacher(teacher);
+console.log(result); // Expected output: J. Doe
