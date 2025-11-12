@@ -55,3 +55,19 @@ export function createEmployee(salary: number | string): Director | Teacher {
 console.log(createEmployee(200).constructor.name);   // Teacher
 console.log(createEmployee(1000).constructor.name);  // Director
 console.log(createEmployee('$500').constructor.name); // Director
+// String literal type for Subjects
+export type Subjects = "Math" | "History";
+
+// Function that teaches the class
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+  // Optionally, TypeScript will warn if another string is passed
+}
+
+// Example usage
+console.log(teachClass("Math"));     // Teaching Math
+console.log(teachClass("History"));  // Teaching History
