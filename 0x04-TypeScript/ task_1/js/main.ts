@@ -1,12 +1,12 @@
-// Define the interface for the input object 
-interface TeacherName {
-    firstName: string;
-    lastName: string;
+interface Teacher {
+  firstName: string;
+  lastName: string;
 }
- const printTeacher = ({ firstName, lastName }: TeacherName): string => {
-    const initial: string = firstName.charAt(0);
-    return `${initial}. ${lastName}`;
-};
-const teacher: TeacherName = { firstName: "John", lastName: "Doe" };
-const result: string = printTeacher(teacher);
-console.log(result); 
+
+function printTeacher(teacher: Teacher): string {
+  return `{teacher.firstName.charAt(0)}. {teacher.lastName}`;
+}
+
+// Example usage:
+const myTeacher = { firstName: "John", lastName: "Doe" };
+console.log(printTeacher(myTeacher)); // Output: J. Doe
