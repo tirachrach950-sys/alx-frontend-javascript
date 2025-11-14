@@ -5,7 +5,7 @@ export interface Teacher {
   fullTimeEmployee: boolean;
   location: string;
   yearsOfExperience?: number;
-  [key: string]: any; // Allow additional properties like 'contract'
+  [key: string]: any; // Allow extra properties like 'contract'
 }
 
 // Interface for the printTeacher function
@@ -13,7 +13,7 @@ export interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Function implementation
+// Function that accepts an object with firstName and lastName
 export const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
   return `${firstName[0]}. ${lastName}`;
 };
@@ -26,13 +26,4 @@ const teacher1: Teacher = {
   location: "London",
 };
 
-const teacher2: Teacher = {
-  firstName: "Jane",
-  lastName: "Smith",
-  fullTimeEmployee: false,
-  location: "New York",
-  contract: true,
-};
-
 console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: J. Doe
-console.log(printTeacher({ firstName: "Jane", lastName: "Smith" })); // Output: J. Smith
