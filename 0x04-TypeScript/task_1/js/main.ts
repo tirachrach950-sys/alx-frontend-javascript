@@ -4,14 +4,8 @@ interface StudentClassConstructor {
   lastName: string;
 }
 
-// Interface describing the StudentClass itself
-interface StudentClassInterface {
-  workOnHomework(): string;
-  displayName(): string;
-}
-
-// StudentClass implementation
-class StudentClass implements StudentClassInterface {
+// StudentClass definition
+class StudentClass {
   firstName: string;
   lastName: string;
 
@@ -30,12 +24,12 @@ class StudentClass implements StudentClassInterface {
 }
 
 // Interface for the printTeacher function
-export interface printTeacherFunction {
+interface printTeacherFunction {
   (teacher: { firstName: string; lastName: string }): string;
 }
 
-// Implementation of the printTeacher function
-export const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
+// Function implementation
+const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
   return `${firstName[0]}. ${lastName}`;
 };
 
